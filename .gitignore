@@ -1,0 +1,9 @@
+#过滤数据库文件、配置文件
+*.
+*.config
+
+# 忽略 build/ 目录下的所有文件
+.idea/
+build/
+node_modules/
+output/
