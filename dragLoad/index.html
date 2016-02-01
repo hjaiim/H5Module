@@ -4,7 +4,7 @@
     	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
     	<title>上拉加载下一页</title>
         <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
-         <script src="js/pullLoad.js"></script>
+         <script src="js/dragLoad.js"></script>
              <style>
     *{
         margin: 0;
@@ -151,6 +151,18 @@
         </a>
     </div>
 </div>
+    
+    <script>
+        function domPackage(data){
+           var dom = "";
+            for (item in data) {
+                dom += '<a class="item" href="#">' + '<img src="http://d6.yihaodianimg.com/N02/M0B/81/5A/CgQCsVMhX_mAAvXsAAJDE3K2zh485900_80x80.jpg" alt="">' +
+                    '<h3>'+data[item].title+'ddd</h3>' + '<span class="date">2014-14-14</span>' + '</a>';
+            }
+            return dom;
+        }
+     $('.lists').dragLoad({'url':'test/mockData.json'})
+    </script>
 
 
 </body>
