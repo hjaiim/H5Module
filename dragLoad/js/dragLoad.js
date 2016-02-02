@@ -57,7 +57,11 @@
                 },
                 success: function (data) {
                     //console.info(data);
-                    var t = setTimeout(function(){dragThis.render(data);},dragThis.opts.delayTime);
+                    if(data != null){
+                        var t = setTimeout(function(){dragThis.render(data);},dragThis.opts.delayTime);
+                    }else{
+                        dragThis.opts.loadingDom.html("没有更多");
+                    }
                 },
                 error: function (xhr, type) {
                     console.error(type);
