@@ -161,7 +161,7 @@
 </div>
     
     <script>
-        function domPackage(data){
+        function packageDom(data){
            var dom = "";
             for (item in data) {
                 dom += '<a class="item" href="#">' + '<img src="http://d6.yihaodianimg.com/N02/M0B/81/5A/CgQCsVMhX_mAAvXsAAJDE3K2zh485900_80x80.jpg" alt="">' +
@@ -169,7 +169,13 @@
             }
             return dom;
         }
-     $('.lists').dragLoad({'url':'test/mockData.json','loadingDom':$('.pageLoading'),'domPackageFunction':domPackage})
+		function formatData(data){
+            return data;
+        }
+		function noMoreHandle(){
+		  $('.pageLoading').html("没有更多ww")
+		}
+     $('.lists').dragLoad({'url':'test/mockData.json','loadingDom':$('.pageLoading'),'callbackFun':{'callbackFun':packageDom,'formatData':formatData,'noMoreHandle':noMoreHandle}})
     </script>
 
 
