@@ -8,7 +8,11 @@
         this.element = ele;
         this.defaults = {
             from : 0,
-            pageCount : 10
+            pageCount : 10,
+            //配置加载提示dom
+            loadingDom:$('.pageLoading'),
+            //延迟显示，即加载提示显示时间
+            delayTime:1000
         };
         this.opts = $.extend({}, this.defaults, opt)
         this.init();
@@ -47,9 +51,13 @@
                 },
                 dataType: 'json',
                 timeout: 5000,
+                beforeSend: function(){
+                    //显示加载提示
+                    dragThis.opts.loadingDom.css("visibility","visible");
+                },
                 success: function (data) {
                     //console.info(data);
-                    dragThis.render(data);
+                    var t = setTimeout(function(){dragThis.render(data);},dragThis.opts.delayTime);
                 },
                 error: function (xhr, type) {
                     console.error(type);
@@ -67,6 +75,8 @@
                         '<h3>'+data[item].title+'</h3>' + '<span class="date">2014-14-14</span>' + '</a>';
                 }
             }
+            //隐藏加载提示
+            this.opts.loadingDom.css("visibility","hidden");
             this.element.append(dom);
             this.opts.from = this.opts.from + this.opts.pageCount;
         },
