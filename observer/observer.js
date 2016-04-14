@@ -1,16 +1,30 @@
-define(function() {
+(function(root) {
 	/**
 	 *订阅模式
 	 */
-	function Observer() {
+	var Observer = function() {
 		this.fns = []; // 订阅者存放的数组
 	}
 	Observer.prototype = {
 		/**
+		 *是否是数组数字元素
+		 */
+		in_array: function(search, array) {
+			for (var i in array) {
+				if (array[i] == search) {
+					return true;
+				}
+			}
+			return false;
+		},
+		getFns: function() {
+			return this.fns;
+		},
+		/**
 		 *添加订阅者
 		 */
 		subscribe: function(fn) {
-			if (!this.fns[fn]) {
+			if (!this.in_array(fn, this.fns)) {
 				this.fns.push(fn);
 			}
 		},
@@ -19,6 +33,9 @@ define(function() {
 		 */
 		unsubscribe: function(fn) {
 			if (this.fns.length === 0) {
+				return false;
+			}
+			if(!this.in_array(fn, this.fns)){
 				return false;
 			}
 			if (!Array.prototype.filter) {
@@ -62,6 +79,7 @@ define(function() {
 					}
 				}
 			}
+			return this.fns.length;
 		},
 		/**
 		 *  赋予对象obj观察者功能
@@ -73,5 +91,17 @@ define(function() {
 			}
 		}
 	};
-	return Observer;
-});
+	//UMD 模块的写法输出
+	var moduleExport = function(myfun) {
+		if (typeof define === "function" && define.amd) { //AMD
+			define(function() {
+				return myfun;
+			});
+		} else if (typeof exports === 'object') { //Node, CommonJS之类的
+			module.exports = myfun;
+		} else { //浏览器全局变量(root 即 window)
+			root.Observer = myfun;
+		}
+	}
+	moduleExport(Observer);
+})(window);
