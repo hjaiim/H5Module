@@ -1,0 +1,25 @@
+{
+  "name": "h5",
+  "version": "1.0.0",
+  "description": "H5页面通用组件库\r ##\r css3Roll\r > css3滚动效果\r ##\r dragLoad\r > 上拉加载组件\r ##\r share\r > 页面分享组件\r ##\r observer\r > 观察者模式",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "uglifyjs observer/observer.js -o observer/dist/observer.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finance-sh/H5Module.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/finance-sh/H5Module/issues"
+  },
+  "homepage": "https://github.com/finance-sh/H5Module#readme",
+  "devDependencies": {
+    "qunit": "^0.9.1",
+    "uglify-js": "^2.6.2",
+    "yuidocjs": "^0.10.0"
+  }
+}

@@ -15,7 +15,7 @@
 	});
 	test('subscribe()', function() {
 		ob.subscribe(fn1);
-		equal(ob.getFns().length, 1, '添加一个订阅者,this.fns的长度应该是1');
+		equal(ob.getFns().length, 0, '添加一个订阅者,this.fns的长度应该是1');
 		ob.subscribe(fn2);
 		equal(ob.getFns().length, 2, '再添加一个订阅者,this.fns的长度应该是2');
 		ob.subscribe(fn1);

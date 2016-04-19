@@ -13,5 +13,11 @@ share
 observer
 > 观察者模式
 
+validator
+> 验证器
+
+toolLib
+> 工具库
+
 注意：
-组件必须经过单元测试
+组件须经过单元测试

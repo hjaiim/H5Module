@@ -1,9 +1,19 @@
 (function(root) {
 	/**
-	 *订阅模式
+	 * This is the description for my class.
+	 * 订阅模式
+	 * @class Observer
+	 * @constructor
 	 */
 	var Observer = function() {
-		this.fns = []; // 订阅者存放的数组
+		/**
+		 * 订阅者存放的数组
+		 * 
+		 * @property fns
+		 * @type {Array}
+		 * @default []
+		 */
+		this.fns = []; // 
 	}
 	Observer.prototype = {
 		/**
@@ -20,22 +30,30 @@
 		getFns: function() {
 			return this.fns;
 		},
-		/**
-		 *添加订阅者
+		/** 
+		 * 添加订阅者
+		 *
+		 * @method subscribe
+		 * @param fn {Function} 待添加的订阅者
+		 * @return {} 无
 		 */
 		subscribe: function(fn) {
 			if (!this.in_array(fn, this.fns)) {
 				this.fns.push(fn);
 			}
 		},
-		/**
-		 *移除订阅者
+		/** 
+		 * 移除订阅者
+		 *
+		 * @method subscribe
+		 * @param fn {Function} 待移除的订阅者
+		 * @return {Boolean} 移除成功返回true,否则返回false
 		 */
 		unsubscribe: function(fn) {
 			if (this.fns.length === 0) {
 				return false;
 			}
-			if(!this.in_array(fn, this.fns)){
+			if (!this.in_array(fn, this.fns)) {
 				return false;
 			}
 			if (!Array.prototype.filter) {
@@ -56,9 +74,13 @@
 				}
 			}
 		},
-		/**
-		 *发布
-		 * thisObj 可以挂到指定发布者对象上
+		/** 
+		 * 发布
+		 *
+		 * @method publish
+		 * @param arg {String} 可选参数 
+		 * @param thisObj {Object} 指定调用对象
+		 * @return {} 无
 		 */
 		publish: function(arg, thisObj) {
 			if (this.fns.length === 0) {
@@ -81,8 +103,12 @@
 			}
 			return this.fns.length;
 		},
-		/**
-		 *  赋予对象obj观察者功能
+		/** 
+		 * 赋予对象obj观察者功能
+		 *
+		 * @method attach
+		 * @param {Object} 可以挂到指定发布者对象上
+		 * @return {} 无
 		 */
 		attach: function(obj) {
 			for (var i in this) {
@@ -91,8 +117,13 @@
 			}
 		}
 	};
-	//UMD 模块的写法输出
-	var moduleExport = function(myfun) {
+	/**
+	 * UMD 模块的写法输出
+	 * @method _moduleExport
+	 * @private
+	 * @param myfun {String} 要输出的对象引入
+	 */
+	var _moduleExport = function(myfun) {
 		if (typeof define === "function" && define.amd) { //AMD
 			define(function() {
 				return myfun;
@@ -103,5 +134,5 @@
 			root.Observer = myfun;
 		}
 	}
-	moduleExport(Observer);
+	_moduleExport(Observer);
 })(window);
