@@ -252,13 +252,12 @@
 	 * @return {} 无
 	 */
 	Validator_rule.prototype.setRule = function(ruleName, rule) {
-		if (ruleName && rule) {
-			this.rules[ruleName] = rule;
-			return true;
-		} else {
-			console.log('参数缺失')
+		if (!checkArgument(arguments, ['string', 'Object'])) {
 			return false;
 		}
+
+		this.rules[ruleName] = rule;
+		return true;
 	};
 	/** 
 	 * 获取对应验证规则
@@ -282,4 +281,5 @@
 		this.rules[ruleName].tip = tip;
 	};
 	root.Validator_rule = Validator_rule;
+	
 })(window);

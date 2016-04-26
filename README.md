@@ -1,22 +1,18 @@
 # H5Module
 H5页面通用组件库
-##
-css3Roll
+##css3Roll
 > css3滚动效果
-##
-dragLoad
+##dragLoad
 > 上拉加载组件
-##
-share
+##share
 > 页面分享组件
-##
-observer
+##observer
 > 观察者模式
 
-validator
+##validator
 > 验证器
 
-toolLib
+##toolLib
 > 工具库
 
 注意：

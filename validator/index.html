@@ -11,20 +11,31 @@
 <script type="text/javascript" src="example/jquery.js"></script>
 <script type="text/javascript" src="src/rule.js"></script>
 <script type="text/javascript" src="src/validator.js"></script>
-<script>
+
+</head>
+<body>
+<input type="text" value="" data-validator="email" id="good" class="jj" / >
+<input type="text" value="" data-validator="number" id="good2" class="jj" / >
+
+<input type="text" value="" data-validator="number" id="uu" / >
+    <script>
 // 　require(['validator'], function (Validator){
 // 	//测试一
 // 	var v = new Validator;
 // 　
 // });
 
-var rule = new Validator_rule();
+// var rule = new Validator_rule();
 
-rule.getRule("test");
+// rule.getRule("test");
+//var domObj = document.getElementById("good");
+var domObj = $('.jj');
+
+var va = new Validator(domObj);
+va.addItemDom($('#uu'));
+
+// console.log(domObj.getAttribute("data-validator"));
 
  </script>
-</head>
-<body>
-    
 </body>
 </html>
