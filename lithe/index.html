@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="lithe.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+<script type="text/javascript" src="lithe.js"></script>
+</head>
+<body>
+	<p><a id="tijiao" href="###">提交</a></p>
+	<p><a id="tijiao1" href="###">提交</a></p>
+	<p><a id="close" href="###">关闭</a></p>
+	<p><a id="tipShow" href="###">显示提示</a></p>
+	<p><a id="tipShow1" href="###">显示提示1</a></p>
+	<p><a id="tipClose" href="###">关闭提示</a></p>
+
+	<p><a id="switchButton" href="###">切换按钮</a></p>
+<script>
+$(function(){
+	var btn = document.getElementById('tijiao1');
+
+	$(btn).click(function (){ 
+	   lithe.loadShow();
+	   setTimeout("lithe.loadClose()",5000);
+	});
+
+	$("#tipShow").click(function (){ 
+		lithe.tipBox('加载中',3000);
+	});
+
+	$("#tipShow1").click(function (){ 
+		lithe.tipBox('提交中');
+	});
+
+	$("#tipClose").click(function (){ 
+		lithe.tipBoxClose();
+	});
+
+	$("#switchButton").click(function (){ 
+		lithe.switchButton($(this).parent());
+	});
+
+})
+ </script>
+</body>
+</html>
