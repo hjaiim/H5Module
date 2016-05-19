@@ -69,10 +69,12 @@
 	 * @return {Boolean} 
 	 */
 	var switchButton = function(dom) {
-		var switchButtonHtml = '<div class="switchButton">'
-						     +   '<label for="checkbox-new"></label>' 
-							 +   '<input type="checkbox" id="checkbox-new">'
-							 + '</div>';
+		var switchButtonHtml = '<label class="switchButton">' 
+								+ '<input type="checkbox" class="ios-switch-input" checked="checked" />' 
+								+ '<div class="ios-switch-wrap">' 
+									+ '<div class="ios-switch-cursor"></div>' 
+								+ '</div>' 
+							+ '</label>';
 		dom.html(switchButtonHtml);
 	};
 

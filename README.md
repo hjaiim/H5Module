@@ -1,5 +1,8 @@
 # H5Module
 H5页面通用组件库
+
+##reset
+> 基础样式
 ##css3Roll
 > css3滚动效果
 ##dragLoad
