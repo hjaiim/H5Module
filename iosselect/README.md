@@ -199,5 +199,3 @@ http://zhoushengfe.com/iosselect/demo/rem/bank.html
 
 http://zhoushengfe.com/iosselect/demo/datepicker/date.html
     
-    
-    如果有使用问题，可加QQ群：295805025
