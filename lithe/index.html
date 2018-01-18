@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="lithe.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+<script type="text/javascript" src="lithe.js"></script>
+</head>
+<body>
+	<p><a id="tijiao" href="###">点击显示加载效果</a></p>
+	<p><a id="tijiao1" href="###">点击显示加载效果，5秒后自动关闭</a></p>
+	<p><a id="close" href="###">关闭加载效果</a></p>
+	<p><a id="tipShow" href="###">显示提示</a></p>
+	<p><a id="tipShow1" href="###">显示提示1</a></p>
+	<p><a id="tipClose" href="###">关闭提示</a></p>
+	<p><a id="switchButton" href="###">载入切换按钮</a></p>
+
+<!-- 	<label>
+		<input type="checkbox" class="ios-switch-input" checked="checked" />
+		<div class="ios-switch-wrap">
+			<div class="ios-switch-cursor"></div>
+		</div>
+	</label> -->
+   <label>
+		<div class="csl-wrap">
+			<input type="checkbox" name="check" value="4" class="csl-check" autocomplete="off">
+			<div class="csl-switch">
+				<div class="csl-cursor"></div>
+				<div class="csl-label csl-label-on">ON</div>
+				<div class="csl-label csl-label-off">OFF</div>
+			</div>
+		</div>
+	</label>
+
+<script>
+$(function(){
+	$('#tijiao').click(function (){ 
+	   lithe.loadShow();
+	});
+
+	$('#tijiao1').click(function (){ 
+	   lithe.loadShow();
+	   setTimeout("lithe.loadClose()",5000);
+	});
+
+	$("#tipShow").click(function (){ 
+		lithe.tipBox('提示',3000);
+	});
+
+	$("#tipShow1").click(function (){ 
+		lithe.tipBox('提示1');
+	});
+
+	$("#tipClose").click(function (){ 
+		lithe.tipBoxClose();
+	});
+
+	$("#switchButton").click(function (){ 
+		lithe.switchButton($(this).parent());
+	});
+
+})
+ </script>
+</body>
+</html>

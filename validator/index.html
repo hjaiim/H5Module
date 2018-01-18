@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<!-- <script type="text/javascript" src="//cdn.bootcss.com/require.js/2.1.22/require.js"></script> -->
+<script type="text/javascript" src="example/jquery.js"></script>
+<script type="text/javascript" src="src/rule.js"></script>
+<script type="text/javascript" src="src/validator.js"></script>
+
+</head>
+<body>
+<input type="text" value="" data-validator="email" id="good" class="jj" / >
+<input type="text" value="" data-validator="number" id="good2" class="jj" / >
+
+<input type="text" value="" data-validator="number" id="uu" / >
+    <script>
+// 　require(['validator'], function (Validator){
+// 	//测试一
+// 	var v = new Validator;
+// 　
+// });
+
+// var rule = new Validator_rule();
+
+// rule.getRule("test");
+//var domObj = document.getElementById("good");
+var domObj = $('.jj');
+
+var va = new Validator(domObj);
+va.addItemDom($('#uu'));
+
+// console.log(domObj.getAttribute("data-validator"));
+
+ </script>
+</body>
+</html>
